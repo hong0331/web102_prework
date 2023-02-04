@@ -189,3 +189,21 @@ firstGameContainer.append(topFundedGame);
 const secondMostFundedGame= document.createElement('p');
 secondMostFundedGame.innerHTML= secondMostFunded.name;
 secondGameContainer.append(secondMostFundedGame);
+
+/************************************************************************************
+ * Customizing: adding searchbar to search for specific game  
+ * Skills used: spread operator, destructuring, template literals, sort 
+ */
+const searchInput=document.querySelector('[search-data]');
+searchInput.addEventListener('input',element =>{
+    const value= element.target.value
+    console.log(value)
+
+    let FoundList = GAMES_JSON.filter( game =>
+        game.name.toLowerCase().includes(value.toLowerCase())
+    );
+    deleteChildElements(gamesContainer);
+    addGamesToPage(FoundList)
+
+});
+console.log(searchInput);

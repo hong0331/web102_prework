@@ -68,6 +68,18 @@ body {
     box-shadow: 0 0 30px lightblue;
 }
 
+.search-wrapper{
+    display: flex;
+    flex-direction: column;
+    gap: .25rem;
+}
+
+input {
+    font-size: 1rem;
+}
+.hide{
+    display: none;
+}
 #button-container {
     text-align: center;
 }
