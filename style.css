@@ -21,6 +21,12 @@ body {
 
 .stats-container {
     display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.stat-container:hover{
+    box-shadow: 0 0 30px lightblue
 }
 
 .stats-card {
@@ -33,7 +39,7 @@ body {
 }
 
 #num-contributions, #total-raised, #num-games {
-    font-size: 50px;
+    font-size: 60px;
 }
 
 #games-container {
@@ -65,6 +71,7 @@ body {
 #button-container {
     text-align: center;
 }
+
 
 button {
     font-family: 'Cabin';
