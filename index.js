@@ -69,12 +69,12 @@ addGamesToPage(GAMES_JSON);
 const contributionsCard = document.getElementById("num-contributions");
 
 // use reduce() to count the number of total contributions by summing the backers
-let totalContributer= GAMES_JSON.reduce((acc,curr, idx)=>{
+let totalContribution= GAMES_JSON.reduce((acc,curr, idx)=>{
     return acc+=curr.backers;
 },0);
 
 // set the inner HTML using a template literal and toLocaleString to get a number with commas
-contributionsCard.innerHTML= totalContributer.toLocaleString("en-US");
+contributionsCard.innerHTML= totalContribution.toLocaleString("en-US");
 
 // grab the amount raised card, then use reduce() to find the total amount raised
 const raisedCard = document.getElementById("total-raised");
@@ -149,12 +149,21 @@ allBtn.addEventListener("click",showAllGames)
 const descriptionContainer = document.getElementById("description-container");
 
 // use filter or reduce to count the number of unfunded games
-
+let unfundedGameCount= GAMES_JSON.filter( game => game.goal > game.pledged).length
+let fundedGameCount= GAMES_JSON.filter( game => game.goal < game.pledged).length
 
 // create a string that explains the number of unfunded games using the ternary operator
-
+let displayStr = unfundedGameCount > 1 ?
+    // if multiple games remain unfunded
+    `A total number of ${totalAmount.toLocaleString("en-US")} has been raised for ${fundedGameCount.toLocaleString("en-US")}. Currently ${unfundedGameCount.toLocaleString("en-US")} remains unfunded. We need your help to fund these amazing games.`
+    // if one game remains unfunded 
+    :`A total number of ${totalAmount.toLocaleString("en-US")} has been raised for ${fundedGameCount.toLocaleString("en-US")}. Currently 1 remains unfunded. We need your help to fund this amazing game.`;
 
 // create a new DOM element containing the template string and append it to the description container
+let paragraph= document.createElement('p');
+paragraph.innerHTML = displayStr
+descriptionContainer.append(paragraph);
+
 
 /************************************************************************************
  * Challenge 7: Select & display the top 2 games
@@ -169,7 +178,14 @@ const sortedGames =  GAMES_JSON.sort( (item1, item2) => {
 });
 
 // use destructuring and the spread operator to grab the first and second games
-
+let [mostFunded, secondMostFunded,...others] = sortedGames
+console.log(mostFunded,secondMostFunded)
 // create a new element to hold the name of the top pledge game, then append it to the correct element
+const topFundedGame= document.createElement('p');
+topFundedGame.innerHTML= mostFunded.name;
+firstGameContainer.append(topFundedGame);
 
 // do the same for the runner up item
+const secondMostFundedGame= document.createElement('p');
+secondMostFundedGame.innerHTML= secondMostFunded.name;
+secondGameContainer.append(secondMostFundedGame);
