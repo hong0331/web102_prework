@@ -27,12 +27,14 @@ The following **optional** features can be improved:
 
 Here's a walkthrough of implemented features:
 
-
+![My Movie](https://user-images.githubusercontent.com/67743970/216781428-ca29b13c-4cc3-417b-a887-34824d11cafc.jpg)
 
 ## Notes
 
 Describe any challenges encountered while building the app. 
-- I w
+- While creating the search bar, I was struggling to filter and display the game according to the user input. I first tried for the filtering method to be ` let FoundList = GAMES_JSON.filter( game =>
+        game.name.toLowerCase() == value.toLowerCase()
+    );` , which did not work. After searching up the solutions, I improvisioned the error with `contains` method
 
 ## License
 
