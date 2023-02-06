@@ -29,7 +29,10 @@ Here's a walkthrough of implemented features:
 
 
 
-https://user-images.githubusercontent.com/67743970/216782254-9d8250b9-0376-4789-8f8a-644fbbc79cbd.mov
+
+
+https://user-images.githubusercontent.com/67743970/216867365-2cf14856-d129-49bc-ae50-2a523d944ced.mp4
+
 
 
 
